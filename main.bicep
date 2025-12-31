@@ -1,8 +1,25 @@
+// params and their default value
+param location string = 'westeurope'
+param storageAccountName string = 'toylaunch${uniqueString(resourceGroup().id)}'
+param appServiceAppName string = 'toylaunch${uniqueString(resourceGroup().id)}'
+
+@allowed([
+  'nonprod'
+  'prod'
+])
+param environmentType string
+
+// vars
+var appServicePlanName = 'toy-product-launchplan'
+var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
+var appservicePlanSkuName = (environmentType == 'prod') ? 'P2v3' : 'F1'
+
+// resource: storage account
 resource storageAcc 'Microsoft.Storage/storageAccounts@2025-06-01' = {
-  name: 'toylaunchstrg'
-  location: 'westeurope'
+  name: storageAccountName
+  location: location
   sku: {
-    name: 'Standard_LRS'
+    name: storageAccountSkuName
   }
   kind: 'StorageV2'
   properties: {
@@ -10,17 +27,19 @@ resource storageAcc 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   }
 }
 
+// resource: app service plan
 resource appServicePlan 'Microsoft.Web/serverfarms@2025-03-01' = {
-  name: 'toy-product-lplan'
-  location: 'westeurope'
+  name: appServicePlanName
+  location: location
   sku: {
-    name: 'F1'
+    name: appservicePlanSkuName
   }
 }
 
+// resource: app service app
 resource appServiceApp 'Microsoft.Web/sites@2025-03-01' = {
-  name: 'toy-product-lapp'
-  location: 'westeurope'
+  name: appServiceAppName
+  location: location
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
