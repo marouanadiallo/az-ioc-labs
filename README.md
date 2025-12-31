@@ -11,15 +11,18 @@ La progression du projet est organisée par étapes, chacune étant représenté
 
 Ci-dessous l'ensemble de tâches réalisées sur cette branche :
 
-[ x ] Mettez à jour le fichier Bicep pour inclure un `location` paramètre.\
-[ x ] Mettez à jour le fichier Bicep pour inclure des paramètres et des variables pour les noms de ressources.\
-[ x ] Utiliser des expressions pour définir les valeurs par défaut des paramètres.\
-[ x ] Mettez à jour le fichier Bicep pour inclure des variables pour la référence SKU de chaque ressource.\
-[ x ] Testez le déploiement pour s'assurer que le fichier Bicep est valide.
+- [x] Mettez à jour le fichier Bicep pour inclure un `location` paramètre.\
+- [x] Mettez à jour le fichier Bicep pour inclure des paramètres et des variables pour les noms de ressources.\
+- [x] Utiliser des expressions pour définir les valeurs par défaut des paramètres.\
+- [x] Mettez à jour le fichier Bicep pour inclure des variables pour la référence SKU de chaque ressource.\
+- [x] Testez le déploiement pour s'assurer que le fichier Bicep est valide.
 
 Une fois les tâches réalisées, déployer avec la commande suivante :
 
-` az deployment group create 
-    --name main 
-    --template-file main.bicep 
-    --parameters environmentType=nonprod`
+> ```
+> az deployment group create\  
+>    -g yourResourceGroupName\
+>    --name main\
+>    --template-file main.bicep\
+>    --parameters environmentType=nonprod
+>```
