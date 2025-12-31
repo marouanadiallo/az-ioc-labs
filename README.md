@@ -7,3 +7,5 @@ La progression du projet est organisée par étapes, chacune étant représenté
 - *paramsAndVars* : Intègre les paramètres et variables pour dynamiser les déclarations de ressources.
 - *splitIntoMod* : Découpe le template en modules réutilisables, conformément aux bonnes pratiques Bicep pour un site classique.
 
+> source : [learn.microsoft.com](https://learn.microsoft.com/fr-fr/training/paths/fundamentals-bicep/)
+
