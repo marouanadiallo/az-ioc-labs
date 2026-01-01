@@ -14,10 +14,9 @@ La progression du projet est organisée par étapes, chacune étant représenté
 
 Ci-dessous l'ensemble de tâches réalisées sur cette branche :
 
-- [x] Ajouter un nouveau module et y placer les ressources App Service.
-- [x] Référencez le module à partir du fichier Bicep principal.
-- [x] Ajouter une sortie pour le nom d’hôte de l’application App Service et l’émettre à partir de modules et de fichiers Bicep.
-- [x] Testez le déploiement pour vous assurer que le fichier Bicep est valide.
+- [x] Créez un fichier Bicep qui comprend des paramètres et des variables.
+- [x] Ajoutez des éléments décoratifs aux paramètres.
+- [x] Tester le déploiement pour vous assurer que le modèle est valide.
 
 Une fois les tâches réalisées, déployer avec la commande suivante :
 

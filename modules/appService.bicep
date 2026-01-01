@@ -1,21 +1,25 @@
+@description('The Azure region into which the resources should be deployed.')
 param location string
+
 param appserviceAppName string
+param appServicePlanCapacity int 
+param appServicePlanName string = 'toy-product-launchplan'
 
-@allowed([
-  'nonprod'
-  'prod'
-])
-param environmentType string
+@description('The name and tier of the App Service plan SKU.')
+param appServicePlanSku object = {
+  name: 'F1'
+  tier: 'Free'
+}
 
-var appServicePlanName = 'toy-product-launchplan'
-var appServicePlanSkuName = (environmentType == 'prod') ? 'P2v3' : 'F1'
 
 // resource: app service plan
 resource appServicePlan 'Microsoft.Web/serverfarms@2025-03-01' = {
   name: appServicePlanName
   location: location
   sku: {
-    name: appServicePlanSkuName
+    name: appServicePlanSku.name
+    tier: appServicePlanSku.tier
+    capacity: appServicePlanCapacity
   }
 }
 
