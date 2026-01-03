@@ -6,10 +6,7 @@ param appServicePlanCapacity int
 param appServicePlanName string = 'toy-product-launchplan'
 
 @description('The name and tier of the App Service plan SKU.')
-param appServicePlanSku object = {
-  name: 'F1'
-  tier: 'Free'
-}
+param appServicePlanSku object 
 
 
 // resource: app service plan

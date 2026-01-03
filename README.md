@@ -14,9 +14,12 @@ La progression du projet est organisée par étapes, chacune étant représenté
 
 Ci-dessous l'ensemble de tâches réalisées sur cette branche :
 
-- [x] Créez un fichier Bicep qui comprend des paramètres et des variables.
-- [x] Ajoutez des éléments décoratifs aux paramètres.
-- [x] Tester le déploiement pour vous assurer que le modèle est valide.
+- [x] Ajoutez des paramètres sécurisés
+- [x] Créez un fichier de paramètres
+- [x] Testez le déploiement pour vous assurer que le fichier de paramètres est valide.
+- [x] Créez un coffre de clés et des secrets.
+- [x] Mettez à jour le fichier de paramètres pour faire référence aux secrets du coffre de clés.
+- [x] Testez à nouveau le déploiement pour vous assurer que le fichier de paramètres est toujours valide.
 
 Une fois les tâches réalisées, déployer avec la commande suivante :
 
@@ -25,5 +28,5 @@ Une fois les tâches réalisées, déployer avec la commande suivante :
 >   -g yourResourceGroupName\
 >   --name main\
 >   --template-file main.bicep\
->   --parameters environmentType=nonprod
+>   --parameters main.parameters.dev.json
 >```
